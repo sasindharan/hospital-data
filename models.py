@@ -36,10 +36,20 @@ class Prescription(Base):
     dosage = Column(String)
     instructions = Column(Text)
 
-class LabResult(Base):
-    __tablename__ = "lab_results"
+class Test_Report(Base):
+    __tablename__ = "test_report"
     id = Column(Integer, primary_key=True, index=True)
     patient_id = Column(Integer, ForeignKey("patients.id"))
     test_name = Column(String)
     result = Column(Text)
+    uploader = Column(Text)
+    date = Column(DateTime)
+
+class Scan_Report(Base):
+    __tablename__ = "scan_report"
+    id = Column(Integer, primary_key=True, index=True)
+    patient_id = Column(Integer, ForeignKey("patients.id"))
+    test_name = Column(String)
+    result = Column(Text)
+    uploader = Column(Text)
     date = Column(DateTime)
